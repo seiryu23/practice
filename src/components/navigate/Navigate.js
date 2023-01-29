@@ -1,7 +1,11 @@
+import React from 'react';
+import { response } from 'express';
 import './Navigate.css';
+//import 'mysql2';
+//import 'express';
 //
 function Navigate() {
-    GetMdcAdvic();
+    SQL();
     return (
         <nav className="nav">
             <a>aaa</a>
@@ -9,6 +13,42 @@ function Navigate() {
     );
 }
 
+function SQL()
+{
+    const express = require('express');
+    const app = express();
+    const port = 3000;
+
+    app.get('/', (req, response) => response.send('Hello World!'));
+
+    app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+    /*
+    const express = require('express');
+    const app = express();
+//    const port = 3000;
+    var conn = require('mysql2').createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'Lbmz0204!',
+        database: 'us_angular'
+    });
+    conn.connect(function(err) {
+        if (err) throw err;
+        console.log('Connected');
+    });
+    
+    app.get('/', (request, response) => {
+        const sql = "select * from userinf"
+        conn.query(sql, function (err, result, fields) {  
+        if (err) throw err;
+        response.send(result)
+        });
+    });
+    */
+}
+
+/* 
+// SQL Server使用時の処理
 function GetMdcAdvic() {
     var Connection = require('tedious').Connection;  
     var config = {  
@@ -34,5 +74,7 @@ function GetMdcAdvic() {
     
     connection.connect();
 }
+*/
+
 
 export default Navigate;
