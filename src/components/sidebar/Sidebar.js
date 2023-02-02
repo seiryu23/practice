@@ -2,7 +2,7 @@ import React from "react";
 
 function Sidebar()
 {
-    return <div>再dpバー</div>
+    return <div></div>
 }
 
 export default Sidebar;
