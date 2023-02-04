@@ -6,21 +6,24 @@ import Form from './components/form/Form';
 import List from './components/list/List';
 import React, { useState } from 'react';
 
-const [display, setDisplay] = useState({
-  title: "",
-  category: "",
-  volume: 0,
-  story: 0
-});
-const [flag, setFlag] = useState(false);
+function App()
+{
+  const [display, setDisplay] = useState({
+    id: 0,
+    username: "",
+    mail_address: "",
+    belongCode: 0,
+    areaCode: 0
+  });
+  const [dispData, setDispData] = useState([]);
+  const [flag, setFlag] = useState(false);
 
-function App() {
   return (
     <div className="App">
       <Sidebar />
       <Header />
-      <Form display={display} setDisplay={setDisplay} setFlag={setFlag} />
-      <List json={display} displayFlag={flag}  />
+      <Form display={display} setDispData={setDispData} setDisplay={setDisplay} setFlag={setFlag} />
+      <List json={display} dispData={dispData} displayFlag={flag}  />
     </div>
   );
 }

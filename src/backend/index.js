@@ -20,7 +20,8 @@ app.get("/api", (req, res) => {
         console.log("接続終了(異常)");
         throw err;
       }
-      res.json({message: results[0].title});
+//      results.forEach(elment => res.json({message: elment}));
+      res.json(results);
     }
   );
   console.log("接続終了(正常)");

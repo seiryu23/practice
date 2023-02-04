@@ -20,13 +20,23 @@ export default function List(props) {
 
     const tableBody = props.displayFlag ? (
         <TableBody>
-            <TableRow key={props.searchResult.title}>
+            {props.dispData.map((data, index)=>(
+                <TableRow key={data.id}>
+                    <TableCell component="th" scope="row">{data.id}</TableCell>
+                    <TableCell align="right">{data.username}</TableCell>
+                    <TableCell align="right">{data.mail_address}</TableCell>
+                    <TableCell align="right">{data.belongCode}</TableCell>
+                    <TableCell align="right">{data.areaCode}</TableCell>
+                </TableRow>
+            ))}
+            <TableRow key={props.searchResult.id}>
                 <TableCell component="th" scope="row">
-                 {props.searchResult.title}
+                 {props.searchResult.id}
                 </TableCell>
-                <TableCell align="right">{props.searchResult.category}</TableCell>
-                <TableCell align="right">{props.searchResult.volume}</TableCell>
-                <TableCell align="right">{props.searchResult.story}</TableCell>
+                <TableCell align="right">{props.searchResult.username}</TableCell>
+                <TableCell align="right">{props.searchResult.mail_address}</TableCell>
+                <TableCell align="right">{props.searchResult.belongCode}</TableCell>
+                <TableCell align="right">{props.searchResult.areaCode}</TableCell>
             </TableRow>
         </TableBody>
     ) : null;
@@ -36,10 +46,11 @@ export default function List(props) {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>タイトル</TableCell>
-                        <TableCell align="right">ジャンル</TableCell>
-                        <TableCell align="right">巻数</TableCell>
-                        <TableCell align="right">話数</TableCell>
+                        <TableCell>ID</TableCell>
+                        <TableCell align="right">ユーザ名</TableCell>
+                        <TableCell align="right">メールアドレス</TableCell>
+                        <TableCell align="right">所属コード</TableCell>
+                        <TableCell align="right">担当地区コード</TableCell>
                     </TableRow>
                 </TableHead>
                 {tableBody}
