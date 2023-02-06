@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
 
 app.get("/api", (req, res) => {
   connection.query(
-    'SELECT * FROM `userinf`',
+    'SELECT * FROM `userInf`',
     function(err, results, fields) {
       if(err) {
         console.log("接続終了(異常)");
